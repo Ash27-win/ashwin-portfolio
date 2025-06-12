@@ -37,51 +37,284 @@
 
 // export default AboutDetails;
 
+// import React, { useRef } from 'react';
+// import { motion, useInView } from 'framer-motion';
+
+// const AboutDetails = ({ onBack }) => {
+//   const textRef = useRef(null);
+//   const imageRef = useRef(null);
+//   const isTextInView = useInView(textRef, { once: false, margin: '-30px' });
+//   const isImageInView = useInView(imageRef, { once: false, margin: '-30px' });
+
+//   // Animation variants for text with jump effect
+//   const textVariants = {
+//     hidden: { y: 20, opacity: 0 },
+//     visible: {
+//       y: 0,
+//       opacity: 1,
+//       transition: { type: 'spring', stiffness: 100, damping: 10, duration: 0.3 },
+//     },
+//   };
+
+//   // Animation variants for image with jump effect
+//   const imageVariants = {
+//     hidden: { y: 20, opacity: 0 },
+//     visible: {
+//       y: 0,
+//       opacity: 1,
+//       transition: { type: 'spring', stiffness: 100, damping: 10, duration: 0.25 },
+//     },
+//   };
+
+//   return (
+//     <motion.div
+//       className="min-h-screen flex flex-col md:flex-row items-center justify-center p-6 bg-gray-100 relative"
+//       initial={{ opacity: 0 }}
+//       animate={{ opacity: 1 }}
+//       exit={{ opacity: 0, transition: { duration: 0.2 } }}
+//     >
+//       {/* Back Icon in Top-Left Corner */}
+//       <motion.button
+//         onClick={onBack}
+//         className="absolute top-4 left-4 text-gray-800 hover:text-gray-600"
+//         whileHover={{ scale: 1.2 }}
+//         whileTap={{ scale: 0.9 }}
+//         transition={{ duration: 0.15 }}
+//       >
+//         <svg
+//           xmlns="http://www.w3.org/2000/svg"
+//           className="h-8 w-8"
+//           fill="none"
+//           viewBox="0 0 24 24"
+//           stroke="currentColor"
+//         >
+//           <path
+//             strokeLinecap="round"
+//             strokeLinejoin="round"
+//             strokeWidth={2}
+//             d="M15 19l-7-7 7-7"
+//           />
+//         </svg>
+//       </motion.button>
+
+//       {/* Text Section */}
+//       <motion.div
+//         ref={textRef}
+//         className="md:w-1/2 flex flex-col items-start justify-center p-6 md:pl-12"
+//         variants={textVariants}
+//         initial="hidden"
+//         animate={isTextInView ? 'visible' : 'hidden'}
+//       >
+//         <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">More About Me</h2>
+//         <p className="text-gray-600 text-lg mb-4">
+//           I’m a passionate individual with a keen interest in technology, design, and innovation. Over the years, I’ve worked on various projects that blend creativity with technical expertise, aiming to create meaningful and impactful solutions.
+//         </p>
+//         <p className="text-gray-600 text-lg mb-4">
+//           When I’m not working, you can find me exploring nature, capturing moments through photography, or diving into a good book. I believe in continuous learning and always strive to grow both personally and professionally.
+//         </p>
+//       </motion.div>
+
+//       {/* Single Image Section */}
+//       <motion.div
+//         ref={imageRef}
+//         className="md:w-1/2 p-6"
+//         variants={imageVariants}
+//         initial="hidden"
+//         animate={isImageInView ? 'visible' : 'hidden'}
+//       >
+//         <div className="bg-gray-300 h-96 w-full flex items-center justify-center rounded-lg overflow-hidden">
+//           <span className="text-gray-500">[Your Detailed Image Here]</span>
+//         </div>
+//       </motion.div>
+//     </motion.div>
+//   );
+// };
+
+// export default AboutDetails;
+
+// import React, { useRef } from 'react';
+// import { motion, useInView } from 'framer-motion';
+// import { useNavigate } from 'react-router-dom';
+
+// const AboutDetails = () => {
+//   const navigate = useNavigate();
+//   const textRef = useRef(null);
+//   const imageRef = useRef(null);
+//   const isTextInView = useInView(textRef, { once: false, margin: '-30px' });
+//   const isImageInView = useInView(imageRef, { once: false, margin: '-30px' });
+
+//   const textVariants = {
+//     hidden: { y: 20, opacity: 0 },
+//     visible: {
+//       y: 0,
+//       opacity: 1,
+//       transition: { type: 'spring', stiffness: 100, damping: 10, duration: 0.3 },
+//     },
+//   };
+
+//   const imageVariants = {
+//     hidden: { y: 20, opacity: 0 },
+//     visible: {
+//       y: 0,
+//       opacity: 1,
+//       transition: { type: 'spring', stiffness: 100, damping: 10, duration: 0.25 },
+//     },
+//   };
+
+//   const handleBack = () => {
+//     console.log('Back button clicked'); // Debug log
+//     navigate('/about'); // Navigate to /about
+//   };
+
+//   return (
+//     <motion.div
+//       className="min-h-screen flex flex-col md:flex-row items-center justify-center p-6 bg-gray-100 relative overflow-auto"
+//       initial={{ opacity: 0 }}
+//       animate={{ opacity: 1 }}
+//       exit={{ opacity: 0, transition: { duration: 0.2 } }}
+//     >
+//       <motion.button
+//         onClick={handleBack}
+//         className="absolute top-4 left-4 text-gray-800 hover:text-gray-600 z-10"
+//         style={{ pointerEvents: 'auto' }}
+//         whileHover={{ scale: 1.2 }}
+//         whileTap={{ scale: 0.9 }}
+//         transition={{ duration: 0.15 }}
+//       >
+//         <svg
+//           xmlns="http://www.w3.org/2000/svg"
+//           className="h-8 w-8"
+//           fill="none"
+//           viewBox="0 0 24 24"
+//           stroke="currentColor"
+//         >
+//           <path
+//             strokeLinecap="round"
+//             strokeLinejoin="round"
+//             strokeWidth={2}
+//             d="M15 19l-7-7 7-7"
+//           />
+//         </svg>
+//       </motion.button>
+//       <motion.div
+//         ref={textRef}
+//         className="md:w-1/2 flex flex-col items-start justify-center p-6 md:pl-12"
+//         variants={textVariants}
+//         initial="hidden"
+//         animate={isTextInView ? 'visible' : 'hidden'}
+//       >
+//         <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">More About Me</h2>
+//         <p className="text-gray-600 text-lg mb-4">
+//           I’m a passionate individual with a keen interest in technology, design, and innovation. Over the years, I’ve worked on various projects that blend creativity with technical expertise, aiming to create meaningful and impactful solutions.
+//         </p>
+//         <p className="text-gray-600 text-lg mb-4">
+//           When I’m not working, you can find me exploring nature, capturing moments through photography, or diving into a good book. I believe in continuous learning and always strive to grow both personally and professionally.
+//         </p>
+//       </motion.div>
+//       <motion.div
+//         ref={imageRef}
+//         className="md:w-1/2 p-6"
+//         variants={imageVariants}
+//         initial="hidden"
+//         animate={isImageInView ? 'visible' : 'hidden'}
+//       >
+//         <div className="bg-gray-300 h-96 w-full flex items-center justify-center rounded-lg overflow-hidden">
+//           <span className="text-gray-500">[Your Detailed Image Here]</span>
+//         </div>
+//       </motion.div>
+//     </motion.div>
+//   );
+// };
+
+// export default AboutDetails;
+
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import About from './About';
+// import { IoChevronBack } from "react-icons/io5";
 
-const AboutDetails = ({ onBack }) => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: false, margin: '-30px' });
+const AboutDetails = ({ setShowDetailed }) => { // Remove useNavigate, use setShowDetailed
+  const textRef = useRef(null);
+  const imageRef = useRef(null);
+  const isTextInView = useInView(textRef, { once: false, margin: '-30px' });
+  const isImageInView = useInView(imageRef, { once: false, margin: '-30px' });
 
-  // Animation variants for the detailed content
-  const briefVariants = {
+  const textVariants = {
     hidden: { y: 20, opacity: 0 },
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.3, ease: 'easeOut' },
+      transition: { type: 'spring', stiffness: 100, damping: 10, duration: 0.3 },
     },
+  };
+
+  const imageVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: 'spring', stiffness: 100, damping: 10, duration: 0.25 },
+    },
+  };
+
+  const handleBack = () => {
+    console.log('Back button clicked'); // Debug log
+    setShowDetailed(false); // Use setShowDetailed instead of navigate
   };
 
   return (
     <motion.div
-      ref={ref}
-      className="min-h-screen flex flex-col items-center justify-center p-6 bg-gray-100"
-      variants={briefVariants}
-      initial="hidden"
-      animate={isInView ? 'visible' : 'hidden'}
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center p-6 bg-gray-100 relative overflow-auto"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-black mb-4">More About Me</h2>
-        <p className="text-gray-600 text-lg mb-4">
-          I’m a passionate individual with a keen interest in technology, design, and innovation. Over the years, I’ve worked on various projects that blend creativity with technical expertise, aiming to create meaningful and impactful solutions.
-        </p>
-        <p className="text-gray-600 text-lg mb-4">
-          When I’m not working, you can find me exploring nature, capturing moments through photography, or diving into a good book. I believe in continuous learning and always strive to grow both personally and professionally.
-        </p>
-        <motion.button
-          onClick={onBack} // Go back to initial content
-          className="px-6 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors mt-4"
-          whileHover={{ scale: 1.1, boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}
-          whileTap={{ scale: 0.9 }}
-          transition={{ duration: 0.15 }}
-        >
-          Back
-        </motion.button>
-      </div>
+      {/* <motion.button
+        onClick={handleBack}
+        className="absolute top-4 left-0 text-gray-800 hover:text-gray-600 z-10"
+        style={{ pointerEvents: 'auto' }}
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ scale: 0.9 }}
+        transition={{ duration: 0.15 }}
+      >
+        <IoChevronBack className='w-8 h-8'/>
+      </motion.button> */}
+      <motion.div
+        ref={textRef}
+        className="md:w-1/2 flex flex-col items-start justify-center p-6 md:pl-12"
+        variants={textVariants}
+        initial="hidden"
+        animate={isTextInView ? 'visible' : 'hidden'}
+      >
+        <h1 className="text-5xl md:text-6xl font-bold text-black mb-4">About Me</h1> {/* Fix title to match image */}
+        <motion.div
+          className="w-16 h-1 bg-gray-700 mb-4"
+          variants={textVariants}
+        />
+        <motion.div
+          className="w-16 h-1 bg-gray-700 mb-4 ml-8"
+          variants={textVariants}
+        />
+      </motion.div>
+      <motion.div
+        ref={imageRef}
+        className="md:w-1/2 p-6"
+        variants={imageVariants}
+        initial="hidden"
+        animate={isImageInView ? 'visible' : 'hidden'}
+      >
+        <div className="bg-gray-300 h-96 w-full flex items-center justify-center rounded-lg overflow-hidden">
+          <span className="text-gray-500">[Your Detailed Image Here]</span>
+        </div>
+      </motion.div>
+      {/* Add Scroll Down button to match image */}
+      <motion.button
+        className="px-6 py-2 bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors mt-6"
+        whileHover={{ scale: 1.1, boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}
+        whileTap={{ scale: 0.9 }}
+        transition={{ duration: 0.15 }}
+      >
+        Scroll Down
+      </motion.button>
     </motion.div>
   );
 };

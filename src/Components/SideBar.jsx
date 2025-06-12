@@ -24,24 +24,18 @@
 
 // export default SideBar
 
-import React from 'react'
+import React from 'react';
 import { Home, User, Folder, Mail } from 'lucide-react';
-import { useState } from 'react';
 
 const SideBar = () => {
-  // Scroll to top
   const handleHomeClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Scroll to About section (replace 'about-section' with your actual id)
-  const [animationKey, setAnimationKey] = useState(0);
-const handleUserClick = () => {
-  setAnimationKey((prev) => prev + 1);
-  document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' });
-};
+  const handleUserClick = () => {
+    document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' });
+  };
 
-  // Scroll to Projects section (replace 'projects-section' with your actual id)
   const handleFolderClick = () => {
     const projectsSection = document.getElementById('projects-section');
     if (projectsSection) {
@@ -49,7 +43,6 @@ const handleUserClick = () => {
     }
   };
 
-  // Open mail client
   const handleMailClick = () => {
     window.location.href = 'mailto:your.email@example.com';
   };
@@ -72,4 +65,4 @@ const handleUserClick = () => {
   );
 };
 
-export default SideBar
+export default SideBar;
