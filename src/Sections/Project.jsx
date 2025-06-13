@@ -45,40 +45,40 @@ const Project = ({ setShowDetaild }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0, transitio: { duration: 0.3  } }}
-        className="min-h-screen flex flex-col md:flex-row items-center justify-center px-6 md:px-16 py-12 gap-8"
+        className="min-h-screen flex flex-col md:flex-row items-center justify-center px-9 md:px-24 py-18 gap-12"
     >
 
         <motion.div
             ref={textRef}
-            className='w-full md:w-full flex flex-col justify-center'
+            className='w-full md:w-full flex flex-col justify-center ml-28'
             variants={textVariants}
             initial="hidden"
             animate={isTextInView ? "visible" : "hidden"}
         >
-            <h1 className='text-4xl md:text-6xl font-bold text-gray-900 mb-4'>My Projects</h1>
+            <h1 className='text-6xl md:text-8xl font-bold text-gray-900 mb-4 whitespace-nowrap overflow-hidden'>My Projects</h1>
             <motion.div
-                className='w-16 h-1 bg-gray-700 mb-2'
+                className='w-20 h-1 bg-gray-700 mb-3 rounded-full'
                 variants={lineVariants}
                 custom={0}
                 initial="hidden"
                 animate={isTextInView ? "visible" : "hidden"}
             />
             <motion.div 
-                className='w-16 h-1 bg-gray-700 mb-6 ml-8'
+                className='w-20 h-1 bg-gray-700 mb-12 ml-10 rounded-full'
                 variants={lineVariants}
                 custom={1}
                 initial="hidden"
                 animate={isTextInView ? "visible" : "hidden"}
             />
-            <p className='text-gray-700 text-lg md:text-xl leading-relaxed mb-6'>
+            <p className='text-gray-500 text-lg md:text-xl leading-relaxed mb-6'>
                 This is some of my projects that I have done and currently working on.
             </p>
             <motion.button
                 onClick={handleLearnMore}
-                className='w-36 py-2 text-base bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors'
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ duration: 0.15 }}
+                className='w-36 py-2 text-base bg-gray-700 text-white rounded-full border-2 border-transparent hover:bg-white hover:text-gray-600 hover:border-gray-600 transition-colors'
+                // whileHover={{ scale: 1.05 }}
+                // whileTap={{ scale: 0.95 }}
+                // transition={{ duration: 0.15 }}
             >
                 Learn More
             </motion.button>
@@ -87,11 +87,11 @@ const Project = ({ setShowDetaild }) => {
         {/* Image Section */}
         <motion.div
             ref={imageRef}
-            className='w-full md:w-1/2 flex justify-center'
+            className='w-full md:w-1/2 flex justify-center ml-60'
         >
             <motion.div
                 className='bg-white rounded-lg shadow-lg overflow-hidden'
-                style={{ width: "300px", height: "200px", transform: "rotate(-5deg)", filter: "grayscale(100%)"}}
+                style={{ width: "400px", height: "300px", filter: "grayscale(100%)"}}
                 variants={imageVariants}
                 initial="hidden"
                 animate={isImageInView ? "visible" : "hidden"}

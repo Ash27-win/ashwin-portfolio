@@ -213,40 +213,40 @@ const About = ({ setShowDetailed }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.3 } }}
-      className="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-12 gap-8"
+      className="min-h-screen flex flex-col md:flex-row items-center justify-between px-9 md:px-24 py-18 gap-12"
     >
       {/* About Text Section */}
       <motion.div
         ref={textRef}
-        className="w-full md:w-1/2 flex flex-col justify-center"
+        className="w-full md:w-full flex flex-col justify-center ml-24"
         variants={textVariants}
         initial="hidden"
         animate={isTextInView ? 'visible' : 'hidden'}
       >
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">About Me</h1>
+        <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-4 mt-20">About Me</h1>
         <motion.div
-          className="w-16 h-1 bg-gray-700 mb-2"
+          className="w-20 h-1 bg-gray-700 mb-3 rounded-full"
           variants={lineVariants}
           custom={0}
           initial="hidden"
           animate={isTextInView ? 'visible' : 'hidden'}
         />
         <motion.div
-          className="w-16 h-1 bg-gray-700 mb-6 ml-8"
+          className="w-20 h-1 bg-gray-700 mb-12 ml-10 rounded-full"
           variants={lineVariants}
           custom={1}
           initial="hidden"
           animate={isTextInView ? 'visible' : 'hidden'}
         />
-        <p className="text-gray-700 text-lg md:text-xl leading-relaxed mb-6">
+        <p className="text-gray-500 text-2xl md:text-xl leading-relaxed mb-6">
           A brief introduction about me and my interest. I love building creative and scalable web applications that solve real-world problems.
         </p>
         <motion.button
           onClick={handleLearnMore}
-          className="w-36 py-2 text-base bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors"
-          whileHover={{ scale: 1.05, boxShadow: '0 4px 10px rgba(0,0,0,0.2)' }}
-          whileTap={{ scale: 0.95 }}
-          transition={{ duration: 0.15 }}
+          className="w-36 py-2 text-base bg-gray-700 text-white rounded-2xl border-2 border-transparent hover:bg-gray-200 hover:text-gray-600 hover:border-gray-600 transition-colors"
+          // whileHover={{ scale: 1.05, boxShadow: '0 4px 10px rgba(0,0,0,0.2)' }}
+          // whileTap={{ scale: 0.95 }}
+          // transition={{ duration: 0.15 }}
         >
           Learn More
         </motion.button>

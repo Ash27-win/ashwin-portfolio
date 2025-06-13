@@ -55,7 +55,7 @@ import Home from './Layout/Layout';
 function App() {
   return (
     <Router>
-      <div className="App">
+      <div className="font-rubik">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Navigate to="/" replace />} />

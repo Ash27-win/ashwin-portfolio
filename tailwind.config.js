@@ -8,6 +8,10 @@ export default {
       backgroundImage: {
         'cover-bg': "url('/assets/cover_bg.jpg')",
       },
+      
+      fontFamily: {
+        rubik: ['Rubik', 'sans-serif'],
+      },
     },
   },
   plugins: [],

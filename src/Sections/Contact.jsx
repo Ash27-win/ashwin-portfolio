@@ -40,49 +40,51 @@ const Contact = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0, transition: { duration: 0.3 } }}
-        className="min-h-screen flex flex-col md:flex-row items-center justify-between px-6 md:px-16 py-12 gap-8"
+        className="bg-gray-100 min-h-screen flex flex-col md:flex-row items-center justify-between px-9 md:px-24 py-18 gap-12"
     >
         {/* Text Section */}
         <motion.div
             ref={textRef}
-            className="w-full md:w-full flex flex-col justify-center ml-16"
+            className="w-full md:w-full flex flex-col justify-center ml-24"
             variants={textVariants}
             initial="hidden"
             animate={isTextInView ? 'visible' : 'hidden'}
         >
-            <h1 className='text-4xl md:text-6xl font-bold text-gray-900 mb-4'>Get In Touch</h1>
+            <h1 className='text-6xl md:text-8xl font-bold text-gray-900 mb-4 mt-64'>Get In Touch</h1>
             <motion.div
-                className="w-16 h-1 bg-gray-700 mb-2"
+                className="w-20 h-1 bg-gray-700 mb-3 rounded-full"
                 variants={lineVariants}
+                custom={0}
                 initial="hidden"
                 animate={isTextInView ? 'visible' : 'hidden'}
             />
             <motion.div 
-                className="w-16 h-1 bg-gray-700 mb-8 ml-8"
+                className="w-20 h-1 bg-gray-700 mb-12 ml-10 rounded-full"
                 variants={lineVariants}
+                custom={1}
                 initial="hidden"
                 animate={isTextInView ? 'visible' : 'hidden'}
             />
-            <p className='text-gray-700 text-lg md:text-xl leading-relaxed mb-4'>
+            <p className='text-gray-500 text-2xl md:text-xl leading-relaxed mb-6'>
                 Feel free to reach out for collaborations, inquiriese, or just a friendly chat! I'm always open to new opportunities and ideas.
             </p>
-            <p className='text-gray-700 text-lg md:text-xl leading-relaxed mb-6 cursor-pointer'>
+            <p className='text-gray-500 text-md md:text-xl leading-relaxed mb-9 mt-1 cursor-pointer'>
                 <a href="mailto:">ashwing624@gmail.com</a>
             </p>
 
             {/* Social Media Icon */}
-            <div className='flex gap-4 mt-6'>
-                <a href="mailto:ashwing624@gmail.com" className='w-10 h-10 flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors'>
-                    <FaEnvelope size={20} />
+            <div className='flex gap-6 -mt-4'>
+                <a href="mailto:ashwing624@gmail.com" className='w-[60px] h-[60px] flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-gray-500 transition-colors'>
+                    <FaEnvelope size={32} />
                 </a>
-                <a href="https://github.com/Ash27-win" target='_blank' rel='noopener noreferrer' className='w-10 h-10 flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors'>
-                    <FaGithub size={20} />
+                <a href="https://github.com/Ash27-win" target='_blank' rel='noopener noreferrer' className='w-[60px] h-[60px] flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-gray-500 transition-colors'>
+                    <FaGithub size={32} />
                 </a>
-                <a href="https://instagram.com/ashiwn_villain" target='_blank' rel='noopener noreferrer' className='w-10 h-10 flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors'>
-                    <FaInstagram size={20} />
+                <a href="https://instagram.com/ashiwn_villain" target='_blank' rel='noopener noreferrer' className='w-[60px] h-[60px] flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-gray-500 transition-colors'>
+                    <FaInstagram size={32} />
                 </a>
-                <a href="https://www.linkedin.com/in/ashwin-g-570a39285/" target='_blank' rel='noopener noreferrer' className='w-10 h-10 flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-gray-700 transition-colors'>
-                    <FaLinkedin size={20} />
+                <a href="https://www.linkedin.com/in/ashwin-g-570a39285/" target='_blank' rel='noopener noreferrer' className='w-[60px] h-[60px] flex items-center justify-center bg-gray-800 text-white rounded-full hover:bg-gray-500 transition-colors'>
+                    <FaLinkedin size={32} />
                 </a>
             </div>
         </motion.div>
@@ -94,7 +96,7 @@ const Contact = () => {
             className="w-full md:w-1/2 flex justify-center"
         >
             <motion.div
-                className="bg-white rounded-ld shadow-lg overflow-hidden"
+                className="rounded-lg shadow-lg overflow-hidden"
                 style={{ width: "400px", height: "300px", filter: "grayscale(100%)" }}
                 variants={imageVariants}
                 initial="hidden"    
