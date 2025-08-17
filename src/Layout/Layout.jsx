@@ -52,12 +52,17 @@ const Home = () => {
       {/* Home Section (Header) */}
       <Header />
       {/* About Section */}
-      <section id="about-section" className="min-h-screen flex items-center justify-center bg-gray-100">
+      {/* <section id="about-section" className="min-h-screen flex items-center justify-center bg-gray-100">
         {showDetailed ? (
           <AboutDetails setShowDetailed={setShowDetailed} />
         ) : (
           <About setShowDetailed={setShowDetailed} />
         )}
+      </section> */}
+
+      {/* About Section */}
+      <section id="about-section" className="min-h-screen flex items-center justify-center bg-gray-100">
+        <About />
       </section>
 
       <section id='projects-section' className='min-h-screen flex items-center justify-center bg-gray-100'>

@@ -228,11 +228,12 @@
 
 // export default AboutDetails;
 
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
-// import { IoChevronBack } from "react-icons/io5";
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../Components/NavBar';
 
-const AboutDetails = ({ setShowDetailed }) => {
+const AboutDetails = () => {
   const textRef = useRef(null);
   const imageRef = useRef(null);
   const isTextInView = useInView(textRef, { once: false, margin: '-30px' });
@@ -256,19 +257,21 @@ const AboutDetails = ({ setShowDetailed }) => {
     },
   };
 
-  const handleBack = () => {
-    console.log('Back button clicked'); 
-    setShowDetailed(false); 
-  };
+  // const handleBack = () => {
+  //   navigate('/'); // Navigate back to Home
+  // };
 
-  const aboutImage = "https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60";
+  const aboutImage =
+    'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60';
+
   return (
     <motion.div
-      className="min-h-screen flex flex-col md:flex-row items-center justify-center px-9 md:px-24 py-18 gap-12 bg-gray-100 "
+      className="min-h-screen flex flex-col md:flex-row items-center justify-center px-9 md:px-24 py-18 gap-12 bg-gray-100"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
+      <Navbar />
       <motion.div
         ref={textRef}
         className="w-full md:w-full flex flex-col justify-center"
@@ -276,7 +279,13 @@ const AboutDetails = ({ setShowDetailed }) => {
         initial="hidden"
         animate={isTextInView ? 'visible' : 'hidden'}
       >
-        <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-4 mt-36">About Me</h1> {/* Fix title to match image */}
+        {/* <button
+          onClick={handleBack}
+          className="w-36 py-2 text-base bg-gray-700 text-white rounded-2xl border-2 border-transparent hover:bg-gray-200 hover:text-gray-600 hover:border-gray-600 transition-colors mb-4"
+        >
+          Back
+        </button> */}
+        <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-4 mt-36">About Me</h1>
         <motion.div
           className="w-20 h-1 bg-gray-700 mb-3 rounded-full"
           variants={textVariants}
@@ -291,32 +300,27 @@ const AboutDetails = ({ setShowDetailed }) => {
           initial="hidden"
           animate={isTextInView ? 'visible' : 'hidden'}
         />
-        <p className='text-gray-800 text-2xl md:text-xl leading-relaxed mb-6 '>
+        <p className="text-gray-800 text-2xl md:text-xl leading-relaxed mb-6">
           A brief introduction about me and my interest
         </p>
-        {/* Add Scroll Down button to match image */}
         <motion.button
           className="w-36 py-2 text-base bg-gray-700 text-white rounded-2xl border-2 border-transparent hover:bg-gray-200 hover:text-gray-600 hover:border-gray-600 transition-colors"
-          // whileHover={{ scale: 1.05, boxShadow: '0 4px 15px rgba(0,0,0,0.2)' }}
-          // whileTap={{ scale: 0.9 }}
-          // transition={{ duration: 0.15 }}
         >
           Scroll Down
         </motion.button>
       </motion.div>
-      {/* Image Section */}
       <motion.div
         ref={imageRef}
         className="w-full md:w-1/2 flex justify-end"
       >
-        <motion.div 
+        <motion.div
           className="bg-white rounded-lg shadow-lg overflow-hidden"
-          style={{ width: "400px", height: "300px", filter: "grayscale(100%)"}}
+          style={{ width: '400px', height: '300px', filter: 'grayscale(100%)' }}
           variants={imageVariants}
           initial="hidden"
-          animate={isImageInView ? "visible" : "hidden"}  
+          animate={isImageInView ? 'visible' : 'hidden'}
         >
-          <img src={aboutImage} alt="About Me" className='w-full h-full object-cover' />
+          <img src={aboutImage} alt="About Me" className="w-full h-full object-cover" />
           <span className="text-gray-500">[Your Detailed Image Here]</span>
         </motion.div>
       </motion.div>

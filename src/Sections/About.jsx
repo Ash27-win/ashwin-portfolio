@@ -170,15 +170,17 @@
 
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
-const About = ({ setShowDetailed }) => {
+const About = () => {
+  const navigate = useNavigate(); // Hook for navigation
   const textRef = useRef(null);
   const gridRef = useRef(null);
   const isTextInView = useInView(textRef, { once: false, margin: '-30px' });
   const isGridInView = useInView(gridRef, { once: false, margin: '-30px' });
 
   const handleLearnMore = () => {
-    setShowDetailed(true);
+    navigate('/about'); // Navigate to /about-details
   };
 
   const textVariants = {
@@ -244,9 +246,6 @@ const About = ({ setShowDetailed }) => {
         <motion.button
           onClick={handleLearnMore}
           className="w-36 py-2 text-base bg-gray-700 text-white rounded-2xl border-2 border-transparent hover:bg-gray-200 hover:text-gray-600 hover:border-gray-600 transition-colors"
-          // whileHover={{ scale: 1.05, boxShadow: '0 4px 10px rgba(0,0,0,0.2)' }}
-          // whileTap={{ scale: 0.95 }}
-          // transition={{ duration: 0.15 }}
         >
           Learn More
         </motion.button>

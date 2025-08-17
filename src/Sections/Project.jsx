@@ -1,14 +1,14 @@
 import { useInView, motion } from 'framer-motion';
 import React, { useRef } from 'react'
 
-const Project = ({ setShowDetaild }) => {
+const Project = ({ setShowDetailed }) => {
     const textRef = useRef(null);
     const imageRef = useRef(null);
     const isTextInView = useInView(textRef, { once: false, margin: "-30px" });
     const isImageInView = useInView(imageRef, { once: false, margin: "-30px" });
 
     const handleLearnMore = () => {
-        setShowDetaild(true);
+        setShowDetailed(true);
     }
 
     const textVariants = {

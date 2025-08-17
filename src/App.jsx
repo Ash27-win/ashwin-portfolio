@@ -51,6 +51,7 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Home from './Layout/Layout';
+import AboutDetails from './Sections/AboutDetails';
 
 function App() {
   return (
@@ -60,7 +61,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Navigate to="/" replace />} />
           {/* Removed /about route since About is now a section in Home */}
-          {/* <Route path="/about-details" element={<AboutDetails />} /> */}
+          <Route path="/about" element={<AboutDetails />} />
         </Routes>
       </div>
     </Router>
