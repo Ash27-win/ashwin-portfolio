@@ -228,9 +228,8 @@
 
 // export default AboutDetails;
 
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 import Navbar from '../Components/NavBar';
 
 const AboutDetails = () => {
@@ -257,10 +256,6 @@ const AboutDetails = () => {
     },
   };
 
-  // const handleBack = () => {
-  //   navigate('/'); // Navigate back to Home
-  // };
-
   const aboutImage =
     'https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60';
 
@@ -271,7 +266,7 @@ const AboutDetails = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0, transition: { duration: 0.2 } }}
     >
-      <Navbar />
+      <Navbar showBackButton={true} /> {/* Show back button on AboutDetails */}
       <motion.div
         ref={textRef}
         className="w-full md:w-full flex flex-col justify-center"
@@ -279,12 +274,6 @@ const AboutDetails = () => {
         initial="hidden"
         animate={isTextInView ? 'visible' : 'hidden'}
       >
-        {/* <button
-          onClick={handleBack}
-          className="w-36 py-2 text-base bg-gray-700 text-white rounded-2xl border-2 border-transparent hover:bg-gray-200 hover:text-gray-600 hover:border-gray-600 transition-colors mb-4"
-        >
-          Back
-        </button> */}
         <h1 className="text-6xl md:text-8xl font-bold text-gray-900 mb-4 mt-36">About Me</h1>
         <motion.div
           className="w-20 h-1 bg-gray-700 mb-3 rounded-full"

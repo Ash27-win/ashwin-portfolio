@@ -161,12 +161,13 @@
 
 // export default Navbar;
 import React, { useState } from 'react';
-import { motion, AnimatePresence, easeInOut } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X, ChevronLeft } from 'lucide-react';
 
-const Navbar = ({ showDetailed, setShowDetailed }) => {
+const Navbar = ({ showBackButton = false, backRoute }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -177,6 +178,14 @@ const Navbar = ({ showDetailed, setShowDetailed }) => {
     toggleMenu();
   };
 
+  const handleBack = () => {
+    if (backRoute) {
+      navigate(backRoute); // Navigate to custom route if provided
+    } else {
+      navigate(-1); // Default: navigate to previous page
+    }
+  };
+
   const menuVariants = {
     hidden: { opacity: 0, scale: 0.95 },
     visible: {
@@ -184,11 +193,11 @@ const Navbar = ({ showDetailed, setShowDetailed }) => {
       scale: 1,
       transition: {
         duration: 0.5,
-        when: "beforeChildren",
+        when: 'beforeChildren',
         staggerChildren: 0.1,
       },
     },
-    exit: { opacity: 0, scale: 0.95, transition: { duration: 0.3, easeInOut } },
+    exit: { opacity: 0, scale: 0.95, transition: { duration: 0.3 } },
   };
 
   const itemVariants = {
@@ -233,10 +242,6 @@ const Navbar = ({ showDetailed, setShowDetailed }) => {
     },
   };
 
-  const handleBack = () => {
-    setShowDetailed(false);
-  };
-
   return (
     <motion.nav
       className="fixed top-0 left-0 w-full p-4 flex justify-between items-center backdrop-blur-sm z-50"
@@ -244,15 +249,17 @@ const Navbar = ({ showDetailed, setShowDetailed }) => {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      {showDetailed && (
+      {/* Back Icon (shown based on showBackButton prop) */}
+      {showBackButton && (
         <motion.button
           onClick={handleBack}
-          className='absolute top-4 left-4 text-black hover:text-gray-600 z-10'
-          whileHover={{ scale:1.2 }}
-          whileTap={{ scale:0.9 }}
-          transition={{ duration:0.15}}
+          className="absolute top-4 left-4 text-black hover:text-gray-600 z-10"
+          whileHover={{ scale: 1.2 }}
+          whileTap={{ scale: 0.9 }}
+          transition={{ duration: 0.15 }}
+          aria-label="Go back to previous page"
         >
-          <ChevronLeft className='w-8 h-8' />
+          <ChevronLeft className="w-8 h-8" />
         </motion.button>
       )}
 
@@ -317,7 +324,10 @@ const Navbar = ({ showDetailed, setShowDetailed }) => {
                   className="text-2xl cursor-pointer"
                 >
                   {section.action ? (
-                    <div onClick={section.action} className="focus:outline-none focus:ring-2 focus:ring-orange-500">
+                    <div
+                      onClick={section.action}
+                      className="focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    >
                       {section.name}
                     </div>
                   ) : (
